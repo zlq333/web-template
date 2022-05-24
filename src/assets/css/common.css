@@ -1,0 +1,512 @@
+@import './theme.css';
+/* =========== 以下是对element修改 和 平台公用样式 ========== */
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 14px;
+  line-height: 1;
+  color: var(--body-font-color);
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial,
+    sans-serif;
+}
+#app {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+svg.iconfont {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+/* ---------------标题header、panels、label------------- */
+.item-header {
+  font-size: 14px;
+  color: #000;
+  height: 30px;
+  line-height: 30px;
+  margin: 5px 0;
+}
+
+.item-header:before {
+  content: ' ';
+  display: inline;
+  background: var(--base-color);
+  padding-left: 3px;
+  margin-right: 15px;
+}
+
+.panels {
+  padding: 15px;
+  border-radius: 6px;
+  background: #fff;
+  border: none;
+  box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 6%);
+  margin-bottom: 15px;
+  .panels-header {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .panels-title {
+      color: var(--body-font-color);
+      font-size: 16px;
+      font-weight: 700;
+    }
+  }
+  .panels-content {
+    margin-bottom: 15px;
+  }
+}
+.panels.detail-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.el-form-item__label {
+  color: var(--base-label-color);
+}
+.font-label {
+  color: var(--base-label-color) !important;
+}
+
+/* ------------------form表单------------------- */
+
+.el-form-item--mini.el-form-item .el-form-item,
+.el-form-item--small.el-form-item .el-form-item {
+  margin-bottom: 0;
+}
+.el-form-item--mini.el-form-item,
+.el-form-item--small.el-form-item {
+  margin-bottom: 22px;
+}
+.el-form-item--small .el-form-item__error {
+  padding-top: 4px;
+}
+.el-form-item.is-success .el-input__inner,
+.el-form-item.is-success .el-input__inner:focus,
+.el-form-item.is-success .el-textarea__inner,
+.el-form-item.is-success .el-textarea__inner:focus {
+  border-color: #dcdfe6;
+}
+
+/* ------------------步骤条------------------- */
+.el-step__head.is-finish {
+  color: var(--base-green-color);
+  border-color: var(--base-green-color);
+}
+.el-step__title.is-finish {
+  color: var(--base-green-color);
+}
+.el-step__description.is-finish {
+  color: var(--base-green-color);
+}
+
+/* -------获取验证码按钮--------- */
+.getcode {
+  font-size: 13px !important;
+  line-height: 1.5;
+  color: var(--base-color) !important;
+}
+
+.getcode:hover {
+  color: var(--base-color) !important;
+}
+
+.el-button.is-disabled.getcode,
+.el-button.is-disabled.getcode:focus,
+.el-button.is-disabled.getcode:hover {
+  color: #bfcbd9 !important;
+  background-color: initial;
+  border: none;
+}
+
+.vcode-tips {
+  text-align: right;
+  color: var(--base-color);
+  height: 30px;
+  line-height: 40px;
+  font-size: 12px;
+  padding-right: 3px;
+  margin-top: -30px;
+}
+
+/* ------------------table样式 ------------------- */
+.el-table--border .el-table__header tr th {
+  padding: 8px 0;
+  background: #f7f9fb;
+  border-right: 1px solid var(--base-border-color);
+}
+
+.el-table td {
+  padding: 8px 0;
+}
+.el-table th {
+  padding: 8px 0;
+  font-weight: bold;
+}
+
+.el-table-column--selection,
+.el-table__expand-column {
+  .cell {
+    text-align: center;
+  }
+}
+/* table展开行 */
+.el-table__expanded-cell .el-form-item {
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 33.33%;
+  display: flex;
+  flex-direction: row;
+  float: left;
+}
+.el-table__expanded-cell .el-form-item__label {
+  display: block;
+  font-size: 12px;
+  flex: 0 0 auto;
+  width: 100px;
+  color: #99a9bf;
+}
+.el-table__expanded-cell .el-form-item__content {
+  font-size: 12px;
+  display: block;
+  flex: 1 1 auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 15px;
+}
+
+.el-table .cell,
+.el-table th > div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.el-table__body tr.current-row > td {
+  background-color: #b6d6f3;
+}
+.el-table .cell .el-button--text {
+  padding: 0;
+  font-size: 14px;
+}
+.inner-table .el-table__expanded-cell {
+  padding: 10px 10px 10px 48px;
+}
+/* 解决el-table表头和内容在放大缩小后错位问题 */
+body .el-table th.gutter {
+  display: table-cell !important;
+}
+body .el-table thead.has-gutter tr::after {
+  content: '';
+  display: table-cell !important;
+}
+/* 解决拖动列表宽度 tooltip宽度异常问题 */
+.el-table .cell.el-tooltip {
+  width: 100% !important;
+}
+/* tooltip__popper最低宽度 */
+.el-tooltip__popper.is-dark {
+  max-width: 300px;
+}
+
+/* toolbar label垂直居中 */
+.toolbar-panel .toolbar-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*原组件loading白色遮罩  改为黑色透明*/
+.el-loading-mask {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/* 减小dialog的padding */
+.el-dialog__body {
+  padding: 20px;
+}
+/*无下边距的form-item 默认是24px 22px*/
+.el-form-item.nomargin {
+  margin-bottom: 0 !important;
+}
+
+/* 所有dialog最低宽度 */
+.el-dialog {
+  min-width: 400px;
+}
+
+/* 文本提示类dialog 固定宽度 */
+.tip-dialog {
+  min-width: 400px;
+  width: 420px;
+}
+/* 支付密码dialog */
+.pay-custom-dialog {
+  width: 380px;
+  .el-dialog__body {
+    padding: 15px 30px;
+  }
+  .el-dialog__footer {
+    padding-top: 0;
+  }
+}
+/* 没有右上角X的dialog */
+.noclose-dialog .el-message-box__close {
+  display: none !important;
+}
+
+/* 日期范围框宽度调整 */
+.el-date-editor--daterange.el-input,
+.el-date-editor--daterange.el-input__inner,
+.el-date-editor--timerange.el-input,
+.el-date-editor--timerange.el-input__inner {
+  width: 250px;
+  .el-date-editor .el-range-input {
+    width: 35%;
+  }
+}
+
+.el-tag.el-tag--mini {
+  border-radius: 2px;
+}
+.el-date-editor--datetimerange.el-input,
+.el-date-editor--datetimerange.el-input__inner {
+  width: 350px;
+  .el-date-editor .el-range-input {
+    width: 39%;
+  }
+}
+
+/* popover-item */
+.multiple-popover {
+  .multiple-popover-item {
+    margin-bottom: 10px;
+  }
+  .multiple-popover-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* 模拟密码框 */
+.mock-pwd-panel {
+  position: relative;
+  .mock-pwd-content {
+    /* width: 320px; */
+    height: 37px;
+    line-height: 37px;
+    border-radius: 4px;
+    background: #ffffff;
+    box-sizing: border-box;
+    padding-left: 31px;
+    position: relative;
+    top: 1px;
+    .mock-dot {
+      vertical-align: middle;
+      width: 4px;
+      height: 4px;
+      background: #4a4b4c;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .mock-dot + .mock-dot {
+      margin-left: 3px;
+    }
+    .mock-placeholder {
+      color: #c0c4cc;
+    }
+    .mock-placeholder.ie-placeholder {
+      color: #606266;
+    }
+    .mock-mouse {
+      display: inline-block;
+      width: 1px;
+      height: 19px;
+      background: #4a4b4c;
+      animation: blink 1s infinite steps(1, start);
+      vertical-align: middle;
+    }
+    .mock-mouse.mock-mouse-position {
+      position: absolute;
+      left: 30px;
+      top: 9px;
+    }
+  }
+
+  .pwd-input {
+    position: absolute;
+    top: 0px;
+  }
+  .pwd-input .el-input__inner {
+    color: transparent;
+    background: transparent;
+    text-indent: -999em;
+  }
+}
+@keyframes blink {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background-color: #4a4b4c;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+/* 选择弹框 table形式的dialog  */
+.select-table-dialog-page {
+  position: relative;
+  padding-bottom: 40px;
+  .select-page-content {
+    height: 340px;
+    overflow-y: auto;
+  }
+  el-table__body tr {
+    cursor: pointer;
+  }
+  .el-table--enable-row-hover .el-table__body tr.current-row:hover > td {
+    background-color: #b6d6f3;
+  }
+  .pagination-fix {
+    bottom: 0;
+  }
+}
+
+/* 详情页header排版 */
+.detail-hander-panel {
+  margin-bottom: 20px;
+  padding-left: 0;
+  line-height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .detail-hander-content {
+    flex: 0 0 auto;
+  }
+  .detail-hander-toolbtn {
+    flex: 0 0 auto;
+  }
+}
+
+/* 仿el-button--text */
+.link-btn {
+  color: var(--base-color);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.link-btn + .link-btn {
+  margin-left: 5px;
+}
+.link-btn:hover {
+  color: var(--el-color-primary-light-2);
+}
+
+/* 图片预览宽高修改 */
+.el-image-viewer__canvas {
+  padding-top: 50px;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+}
+.el-image-viewer__wrapper .el-icon {
+  color: #ffffff;
+}
+
+/* 图片排列 使用img标签 */
+.img-preview-item {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border: 1px solid #c0ccda;
+  box-sizing: border-box;
+}
+.img-preview-item + .img-preview-item {
+  margin-left: 8px;
+}
+
+/* 快捷flex */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-auto1 {
+  flex: 1 1 auto;
+}
+.flex-auto0 {
+  flex: 0 0 auto;
+}
+/* 100%宽度button */
+.btn-block {
+  width: 100%;
+}
+
+/* input图标垂直居中 */
+.el-input__prefix,
+.el-input__suffix-inner {
+  align-items: center;
+}
+.el-input-group__append {
+  .el-button {
+    position: relative;
+    top: -2px;
+  }
+}
+/* table内的el-button text行高修改 */
+.el-table .cell .el-button--text {
+  min-height: 0;
+  font-size: 12px;
+  height: auto !important;
+}
+.el-table .el-checkbox {
+  height: auto !important;
+}
+/* form使用segment样式 */
+.segment-form {
+  .el-input,
+  .el-select,
+  .el-textarea {
+    width: 250px;
+  }
+}
+/* element-plus新版 当按钮文字小于或等于2个字时 会自动加文字间距  */
+.el-button__text--expand {
+  /* letter-spacing: 0.3em;
+  margin-right: -0.3em; */
+  letter-spacing: 0;
+  margin-right: 0;
+}
+
+/* fe-segment的labelWidth没有固定值 */
+.fe-segment .fe-segment-item {
+  .fe-segment-label {
+    width: auto !important;
+  }
+}
+
+/* 去掉触发表单的校验 */
+.el-input__validateIcon {
+  display: none !important;
+}
+
+/* 处理table组件多出一条横线 */
+.el-table__fixed {
+  height: 100% !important;
+}
+.el-table__fixed-right {
+  height: 100% !important;
+}

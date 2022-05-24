@@ -1,0 +1,52 @@
+{
+  "name": "web-template",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build:dev": "vue-tsc --noEmit && vite build --mode dev",
+    "build:test": "vue-tsc --noEmit && vite build --mode test",
+    "build": "vue-tsc --noEmit && vite build --mode prod",
+    "serve": "vite preview",
+    "remove": "rimraf node_modules package-lock.json",
+    "update": "ncu -u --target minor && npm run remove && npm i -f",
+    "tsc": "vue-tsc --noEmit",
+    "format": "prettier --config ./.prettierrc --write ./*.* ./src/**/*.js ./src/**/*.ts ./src/**/*.css ./src/**/*.vue"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^0.2.7",
+    "@fe/calc": "^1.0.4",
+    "@fe/directive": "^1.0.7",
+    "@fe/extend": "^1.0.3",
+    "@fe/filter": "^1.0.8",
+    "@fe/form-valid": "^1.0.7",
+    "@fe/utils": "^1.0.4",
+    "@fe/validator": "^1.0.7",
+    "@fe/vue-component-library": "^1.3.7",
+    "axios": "^0.27.2",
+    "dayjs": "^1.11.2",
+    "element-plus": "^2.2.2",
+    "jsencrypt": "^3.2.1",
+    "pinia": "^2.0.14",
+    "viewerjs": "^1.10.5",
+    "vue": "^3.2.36",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "@types/node": "^14.18.18",
+    "@vitejs/plugin-vue": "^1.10.2",
+    "@vue/compiler-sfc": "^3.2.36",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^5.0.6",
+    "postcss-prefixer": "^2.1.3",
+    "postcss-preset-env": "^7.6.0",
+    "postcss-url": "^10.1.3",
+    "typescript": "^4.6.4",
+    "vite": "^2.9.9",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-html": "^2.1.2",
+    "vue-tsc": "^0.34.16"
+  },
+  "description": "web项目模板",
+  "author": "developer"
+}

@@ -1,0 +1,158 @@
+/*
+--------------------postcss theme---------------
+
+当前主题色 --base-color(js会初始化一个--base-color的css变量)
+为了方便更换主题颜色 页面劲量不要单独配置颜色 全都使用reset文件定制的颜色
+跟随主题的颜色 直接使用font-default bg-default border-default样式规则
+个性化 成功 失败 警告 禁用 等颜色reset文件也有对应样式规则
+*/
+
+:root {
+  /* theme变量 */
+  /* 基础蓝色 */
+  --base-blue-color: #409eff;
+  /* 基础绿色 */
+  --base-green-color: #00b300;
+  /* 基础深灰 */
+  --base-darkgray-color: #606266;
+  /* 基础灰色*/
+  --base-gray-color: #909399;
+  /* 基础红色 */
+  --base-red-color: #ff4949;
+  /* 基础橘色 */
+  --base-orange-color: #ff9900;
+  /* 基础白色 */
+  --base-white-color: #ffffff;
+  /* body字体默认颜色 */
+  --body-font-color: #303133;
+  /* label颜色 */
+  --base-label-color: #606266;
+  /* border颜色 */
+  --base-border-color: #ebeef5;
+  /* 头部导航条背景色 */
+  --header-wrap-bg: #ffffff;
+  /* 头部导航文字颜色 */
+  --nav-item-fontcolor: #303133;
+  /* 头部导航hover背景色 */
+  --nav-item-hoverbg: #485158;
+  /* 头部导航hover文字颜色 */
+  --nav-item-hovercolor: #ffffff;
+  /* 头部导航选中背景色 */
+  --nav-item-activebg: #485158;
+  /* 头部导航选中文字颜色 */
+  --nav-item-activecolor: #ffffff;
+}
+
+/* button并未随主题变更 暂时手动覆盖 */
+/* https://github.com/element-plus/element-plus/issues/2383#issuecomment */
+.el-button--primary {
+  --el-button-font-color: #ffffff !important;
+  --el-button-background-color: var(--base-color) !important;
+  --el-button-bg-color: var(--base-color) !important;
+  --el-button-border-color: var(--base-color) !important;
+  --el-button-hover-color: var(--el-color-primary-light-2) !important;
+  --el-button-hover-bg-color: var(--el-color-primary-light-2) !important;
+  --el-button-active-font-color: #ffffff !important;
+  --el-button-active-background-color: var(--el-color-primary-light-1) !important;
+  --el-button-active-bg-color: var(--el-color-primary-light-1) !important;
+  --el-button-active-border-color: var(--el-color-primary-light-1) !important;
+  --el-button-hover-border-color: var(--el-color-primary-light-1) !important;
+}
+.el-button:active {
+  color: var(--el-color-primary-light-2) !important;
+  border-color: var(--el-color-primary-light-2) !important;
+}
+
+.el-button--text:active {
+  color: var(--el-color-primary-light-2) !important;
+  border-color: transparent !important;
+}
+.el-button--primary:active {
+  color: #e6e6e6 !important;
+  border-color: var(--el-color-primary-light-2) !important;
+}
+.el-button--primary.is-disabled,
+.el-button--primary.is-disabled:active,
+.el-button--primary.is-disabled:focus,
+.el-button--primary.is-disabled:hover {
+  background-color: var(--el-color-primary-light-5) !important;
+  border-color: var(--el-color-primary-light-5) !important;
+}
+.el-button--primary.is-plain {
+  color: var(--el-button-background-color) !important;
+  color: var(--el-button-bg-color) !important;
+  background-color: var(--el-color-primary-light-9) !important;
+  border-color: var(--el-color-primary-light-6) !important;
+}
+.el-button--primary.is-plain.is-disabled,
+.el-button--primary.is-plain.is-disabled:active,
+.el-button--primary.is-plain.is-disabled:focus,
+.el-button--primary.is-plain.is-disabled:hover {
+  color: var(--el-color-primary-light-4) !important;
+  background-color: var(--el-color-primary-light-9) !important;
+  border-color: var(--el-color-primary-light-8) !important;
+}
+
+/* ---------------------示例用法------------------------ */
+
+/* 使用变量 */
+.__postcss-div {
+  color: var(--base-color);
+}
+
+/* 使用嵌套 若已安装postcss-nested插件 可以不写&*/
+.__postcss-div {
+  display: flex;
+  transform: rotate(30deg);
+  & .postcss-child-div {
+    display: block;
+    transform: rotate(-50deg);
+  }
+}
+
+/* 使用 还可支持拼接写法 前置&_表示拼接 后置&表示前缀*/
+.phone {
+  &_title {
+    width: 500px;
+    @media (max-width: 500px) {
+      width: auto;
+    }
+    body.is_dark & {
+      color: white;
+    }
+  }
+  img {
+    display: block;
+  }
+}
+/* 编译后 */
+.phone_title {
+  width: 500px;
+}
+@media (max-width: 500px) {
+  .phone_title {
+    width: auto;
+  }
+}
+body.is_dark .phone_title {
+  color: white;
+}
+.phone img {
+  display: block;
+}
+
+/* 使用color-mod color函数调整色值 可混合使用多个 参数如下*/
+/*
+alpha()：可以简写为a()，接受一个0%至100%的值，用来调整透明度值
+saturation()：可以简写为s()，接受一个0%至100%的值，用来调整饱和度值
+hue()：可以简写为h()，接到一个0到360的整数值，用来调整色相值
+lightness()：可以简写为l()，接受一个0%到100%的值，用来调整亮度值
+tint()：接受一个0%到100%的值，用来调整色彩值
+shade()：接受一个0%到100%的值，用来调整暗度值
+whiteness()：可以简写为w()，接受一个0%到100%的值，用来调整白色值
+blackness()： 可以简写为b()，接受一个0%到100%的值，用来调整黑色值
+contrast()：接受一个0到100%的值，调整对比度
+*/
+.__postcss-div {
+  color: color(#00b300 lightness(+30%));
+}
