@@ -1,5 +1,4 @@
 import '@fe/extend';
-import { vHas, vAllow } from '@fe/directive';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import theme from '@/utils/theme';
