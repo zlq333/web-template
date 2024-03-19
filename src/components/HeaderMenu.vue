@@ -26,7 +26,6 @@
 import { computed, defineComponent, ref, watchEffect } from 'vue';
 import { useGlobalStore } from '@/store/globalStore';
 import HanderLoopMenu from './HanderLoopMenu.vue';
-import { getStorage } from '@fe/utils';
 import defaultLogoUrl from '@/assets/img/logo_default.png';
 import { useRouter } from 'vue-router';
 import projectConfig from '@/config/config';
@@ -82,7 +81,7 @@ export default defineComponent({
       router.push(index);
     };
 
-    const userData = getStorage('userData') || {};
+    const userData:any = localStorage.getItem('userData') || {};
     const systemName = userData.companyName ? userData.companyName : projectConfig.systemName;
     const systemLogo = userData.logo ? userData.logo : defaultLogoUrl;
 

@@ -69,7 +69,6 @@ import { ref, reactive, defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 import { InfoFilled } from '@element-plus/icons-vue';
 import JSEncrypt from '@/utils/JSEncrypt';
-import { openNewtab, setStorage } from '@fe/utils';
 import { getPermission, getDict } from '@/utils/utils';
 import api from '@/api/api';
 import useAxios from '@/utils/useAxios';

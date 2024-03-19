@@ -4,7 +4,6 @@ import Viewer from 'viewerjs';
 
 import { defineStore } from 'pinia';
 import layout from './layout';
-import { setStorage } from '@fe/utils';
 
 interface GlobalState {
   isAcquiredPermission: boolean; // 是否已获取用户身份权限
@@ -86,12 +85,10 @@ export const useGlobalStore = defineStore('global', {
     // 设置全局配置
     setLayout(data: Layout) {
       this.layout = data;
-      setStorage('layout', this.layout);
     },
     // 修改全局配置
     editLayout(key: keyof Layout, value: any) {
       this.layout[key as string] = value;
-      setStorage('layout', this.layout);
     },
     // 设置一级导航选中项
     setNavActive(data: string) {

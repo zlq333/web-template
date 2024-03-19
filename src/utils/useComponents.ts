@@ -177,13 +177,6 @@ const components = [
   ElConfigProvider
 ];
 
-// 样式并未按需加载 一次性引入
-import 'element-plus/theme-chalk/index.css';
-
-// 引入自定义组件(支持按需)
-import FeComponents from '@fe/vue-component-library';
-// css文件须一次性引入
-import '@fe/vue-component-library/lib/style/index.css';
 // 引入自定义主题变量(其中有覆盖element-plus定义的变量)
 import '@/assets/css/theme.css';
 
@@ -194,6 +187,4 @@ export default function useComponents(app: any) {
   components.forEach(component => app.component(component.name, component));
   plugins.forEach(plugin => app.use(plugin));
 
-  // 注册自定义组件
-  app.use(FeComponents);
 }

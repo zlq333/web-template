@@ -48,7 +48,6 @@
 <script lang="ts">
 import { computed, defineComponent } from 'vue';
 import { useGlobalStore } from '@/store/globalStore';
-import { getStorage } from '@fe/utils';
 import { RefreshRight } from '@element-plus/icons-vue';
 
 import HeaderMenu from '@/components/HeaderMenu.vue';

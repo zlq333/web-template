@@ -8,7 +8,7 @@
     "jsx": "preserve",
     "sourceMap": true,
     "lib": ["esnext", "dom"],
-    "types": ["vite/client", "node", "@fe/vue-component-library/typings/index", "element-plus/global"],
+    "types": ["vite/client", "node", "element-plus/global"],
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",

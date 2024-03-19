@@ -168,7 +168,6 @@
 <script lang="ts">
 import { reactive, ref, defineComponent } from 'vue';
 import { useGlobalStore } from '@/store/globalStore';
-import { thousands, valueToLabel } from '@fe/filter';
 
 export default defineComponent({
   setup() {
@@ -199,7 +198,7 @@ export default defineComponent({
       });
     };
 
-    const showLink = (item: SegmentItem) => {
+    const showLink = (item: any) => {
       console.log(item, 'call');
       showViewer(imgSrc3);
     };
@@ -220,7 +219,6 @@ export default defineComponent({
         content: '12353.2171',
         contentClass: 'font-orange',
         unit: '元',
-        filter: thousands,
         showTitle: true
       },
       {
@@ -228,8 +226,6 @@ export default defineComponent({
         label: '字典过滤器',
         content: 1,
         contentClass: 'font-green',
-        filter: valueToLabel,
-        filterParams: [stateDict]
       },
       {
         prop: 'key4',
@@ -352,7 +348,6 @@ export default defineComponent({
       showViewer,
       showViewerAll,
       segmentData,
-      thousands,
       segmentAttr,
       segmentItemAttr,
       imagePreviewAttr,

@@ -15,21 +15,13 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^0.2.7",
-    "@fe/calc": "^1.0.4",
-    "@fe/directive": "^1.0.7",
-    "@fe/extend": "^1.0.3",
-    "@fe/filter": "^1.0.8",
-    "@fe/form-valid": "^1.0.7",
-    "@fe/utils": "^1.0.4",
-    "@fe/validator": "^1.0.7",
-    "@fe/vue-component-library": "^1.3.7",
     "axios": "^0.27.2",
     "dayjs": "^1.11.2",
     "element-plus": "^2.2.2",
     "jsencrypt": "^3.2.1",
     "pinia": "^2.0.14",
     "viewerjs": "^1.10.5",
-    "vue": "^3.2.36",
+    "vue": "^3.4.21",
     "vue-router": "^4.0.15"
   },
   "devDependencies": {
