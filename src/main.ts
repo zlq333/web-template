@@ -18,9 +18,6 @@ app.use(router);
 app.use(createPinia());
 // 注册layout
 app.component('layout', Layout);
-// 注册自定义指令 判断权限
-app.directive('has', vHas(useGlobalStore()));
-// 注册自定义指令 限制输入
-app.directive('allow', vAllow());
+
 // 挂载
 app.mount('#app');
