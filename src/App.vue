@@ -44,6 +44,7 @@ export default defineComponent({
   components: { ProjectSetting },
   setup() {
     console.log('1-------')
+    console.log('2-------')
     const globalStore = useGlobalStore();
 
     const menuTree = computed(() => globalStore.menuTree);
