@@ -43,6 +43,7 @@ export default defineComponent({
   name: 'App',
   components: { ProjectSetting },
   setup() {
+    console.log('1-------')
     const globalStore = useGlobalStore();
 
     const menuTree = computed(() => globalStore.menuTree);
